@@ -2,8 +2,12 @@
 
 ### **Paso 1: Configurar los Emisores de Certificados (cert-manager)**
 
-1. En la consola web de OpenShift, haz clic en el ícono de **"+" (Import YAML)**.
-2. Pega el siguiente manifiesto y haz clic en **Create**:
+1. Ve a **Administration** > **Namespaces** > **Create Namespace**.
+2. Crea los siguientes namespaces:
+   - `istio-csr` (Agente de CSR, Certificate Signing Request)
+   - `istio-system` (Plano de control de Service Mesh)
+3. En la consola web de OpenShift, haz clic en el ícono de **"+" (Import YAML)**.
+4. Pega el siguiente manifiesto y haz clic en **Create**:
 
 ```yaml
 apiVersion: cert-manager.io/v1
@@ -39,7 +43,7 @@ spec:
     secretName: rhcl-root-ca-secret
 ```
 
-3. Despliega el recurso IstioCSR apuntando al emisor **rhcl-ca-issuer** que acabamos de crear:
+5. Despliega el recurso IstioCSR apuntando al emisor **rhcl-ca-issuer** que acabamos de crear:
 
 ```yaml
 apiVersion: operator.openshift.io/v1alpha1
