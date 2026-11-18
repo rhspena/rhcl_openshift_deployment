@@ -33,7 +33,7 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: kuadrant-ca-issuer
+  name: rhcl-ca-issuer
 spec:
   ca:
     secretName: rhcl-root-ca-secret
