@@ -39,6 +39,27 @@ spec:
     secretName: rhcl-root-ca-secret
 ```
 
+3. Despliega el recurso IstioCSR apuntando al emisor **rhcl-ca-issuer** que acabamos de crear:
+
+```yaml
+apiVersion: operator.openshift.io/v1alpha1
+kind: IstioCSR
+metadata:
+  name: default
+  namespace: istio-csr
+spec:
+  istioCSRConfig:
+    certManager:
+      issuerRef:
+        name: rhcl-ca-issuer
+        kind: ClusterIssuer
+        group: cert-manager.io
+    istiodTLSConfig:
+      trustDomain: cluster.local
+    istio:
+      namespace: istio-system
+```
+
 ---
 
 ### **Paso 2: Crear los Namespaces Base**
