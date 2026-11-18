@@ -70,7 +70,6 @@ spec:
 
 1. Ve a **Administration** > **Namespaces** > **Create Namespace**.
 2. Crea los siguientes namespaces:
-   - `istio-system` (Plano de control de Service Mesh)
    - `ingress-gateway` (Pasarelas de entrada)
    - `kuadrant-system` (Controladores de Red Hat Connectivity Link)
    - `demo-app` (Aplicación de prueba)
