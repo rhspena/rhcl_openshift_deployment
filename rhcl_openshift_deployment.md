@@ -21,7 +21,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: rhcl-root-ca
-  namespace: cert-manager
+  namespace: istio-system
 spec:
   isCA: true
   commonName: rhcl-root-ca
