@@ -71,7 +71,7 @@ spec:
 1. Ve a **Administration** > **Namespaces** > **Create Namespace**.
 2. Crea los siguientes namespaces:
    - `ingress-gateway` (Pasarelas de entrada)
-   - `kuadrant-system` (Controladores de Red Hat Connectivity Link)
+   - `rhcl-system` (Controladores de Red Hat Connectivity Link)
    - `demo-app` (Aplicación de prueba)
 
 ---
@@ -80,7 +80,7 @@ spec:
 
 1. Ve a **Operators** > **OperatorHub**.
 2. Instala **Red Hat OpenShift Service Mesh 3** (en el namespace `openshift-operators`).
-3. Busca e instala **Red Hat Connectivity Link** (configurado para gestionar `kuadrant-system`).
+3. Busca e instala **Red Hat Connectivity Link** (configurado para gestionar `rhcl-system`).
 
 ---
 
@@ -101,14 +101,14 @@ spec:
   version: v1.31.1
 ```
 
-2. Inicializa el objeto de control global de Kuadrant en `kuadrant-system` (necesario para habilitar el estado `Enforced: True` en las políticas):
+2. Inicializa el objeto de control global de Kuadrant en `rhcl-system` (necesario para habilitar el estado `Enforced: True` en las políticas):
 
 ```yaml
 apiVersion: kuadrant.io/v1beta1
 kind: Kuadrant
 metadata:
   name: kuadrant
-  namespace: kuadrant-system
+  namespace: rhcl-system
 spec: {}
 ```
 
