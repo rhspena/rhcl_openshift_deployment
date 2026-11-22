@@ -49,19 +49,28 @@ spec:
 apiVersion: operator.openshift.io/v1alpha1
 kind: IstioCSR
 metadata:
-  name: default
-  namespace: istio-csr
+name: default
+namespace: istio-csr
 spec:
-  istioCSRConfig:
-    certManager:
-      issuerRef:
-        name: rhcl-ca-issuer
-        kind: ClusterIssuer
-        group: cert-manager.io
-    istiodTLSConfig:
-      trustDomain: cluster.local
-    istio:
-      namespace: istio-system
+istioCSRConfig:
+certManager:
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: rhcl-ca-issuer
+istio:
+  namespace: istio-system
+  revisions:
+    - default
+istiodTLSConfig:
+  certificateDuration: 1h0m0s
+  certificateRenewBefore: 30m0s
+  maxCertificateDuration: 1h0m0s
+  privateKeyAlgorithm: ECDSA
+  privateKeySize: 256
+  trustDomain: cluster.local
+logFormat: text
+logLevel: 1
 ```
 
 ---
